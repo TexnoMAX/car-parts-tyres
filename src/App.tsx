@@ -53,7 +53,18 @@ function App() {
 
   return (
     <div className="App">
-      {/* Language Switcher */}
+      {/* Theme Switcher - Left Corner */}
+      <div className="theme-switcher">
+        <button 
+          className={`theme-toggle ${currentTheme}`}
+          onClick={toggleTheme}
+          title={currentTheme === 'light' ? 'Переключить на темную тему' : 'Переключить на светлую тему'}
+        >
+          {currentTheme === 'light' ? '🌙' : '🌞'}
+        </button>
+      </div>
+
+      {/* Language Switcher - Right Corner */}
       <div className="language-switcher">
         <button 
           className={currentLang === 'nl' ? 'active' : ''} 
@@ -214,6 +225,11 @@ function App() {
           <p>{t.footer}</p>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <div className="whatsapp-floating" onClick={handleWhatsAppClick}>
+        📱
+      </div>
     </div>
   );
 }
