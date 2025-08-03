@@ -1,0 +1,70 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Запустить Frontend (React)",
+			"type": "shell",
+			"command": "npm run dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [],
+			"args": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"panel": "new",
+				"group": "build"
+			}
+		},
+		{
+			"label": "Запустить Backend (Node.js)",
+			"type": "shell",
+			"command": "npm run dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [],
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}/server"
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"panel": "new",
+				"group": "build"
+			}
+		},
+		{
+			"label": "Запустить проект (Full-Stack)",
+			"dependsOrder": "parallel",
+			"dependsOn": [
+				"Запустить Frontend (React)",
+				"Запустить Backend (Node.js)"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always"
+			}
+		},
+		{
+			"label": "Собрать проект",
+			"type": "shell",
+			"command": "npm run build",
+			"group": "build",
+			"problemMatcher": [],
+			"args": []
+		},
+		{
+			"label": "Установить зависимости",
+			"type": "shell",
+			"command": "npm install && cd server && npm install",
+			"group": "build",
+			"problemMatcher": [],
+			"args": []
+		}
+	]
+}
