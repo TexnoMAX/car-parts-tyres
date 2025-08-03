@@ -63,21 +63,39 @@ body {
 }
 
 .language-switcher button {
-  background: none;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3));
   border: 2px solid #e0e0e0;
   padding: 8px 16px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 12px;
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   color: #000 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.language-switcher button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.language-switcher button:hover::before {
+  left: 100%;
 }
 
 .language-switcher button:hover {
-  border-color: #2196f3;
-  color: #2196f3 !important;
-  background: rgba(33, 150, 243, 0.05);
+  border-color: #ff6b6b;
+  color: #ff6b6b !important;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+  transform: scale(1.1);
 }
 
 .language-switcher button.active {
@@ -137,13 +155,30 @@ body {
 .header {
   background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
   color: #000;
-  padding: 40px 0;
+  padding: 50px 0;
   text-align: center;
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: relative;
   border-bottom: 3px solid transparent;
-  border-image: linear-gradient(90deg, #2196f3, #673ab7, #ff9800, #4caf50) 1;
+  border-image: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7) 1;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .header-content {
@@ -186,11 +221,23 @@ body {
 }
 
 .header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin: 20px 0 10px;
   font-weight: 800;
-  color: #000 !important;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .header p {
@@ -236,25 +283,39 @@ body {
 }
 
 .nav button {
-  background: none;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.5));
   border: 2px solid #333;
   color: #333333 !important;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
-  transition: all 0.3s ease;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
-               -1px -1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(51, 51, 51, 0.8), transparent);
+  transition: left 0.6s;
+}
+
+.nav button:hover::before {
+  left: 100%;
 }
 
 .nav button:hover {
-  background: #333;
+  background: linear-gradient(135deg, #333, #555);
   color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 
-               -1px -1px 1px rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-color: #555;
 }
 
 /* Main Content */
@@ -376,18 +437,37 @@ body {
 }
 
 .products-list li {
-  background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(103, 58, 183, 0.9));
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(103, 58, 183, 0.9), rgba(156, 39, 176, 0.9));
+  background-size: 200% 200%;
   color: #fff !important;
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 500;
   border: 2px solid transparent;
+  animation: productFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes productFloat {
+  0% { 
+    transform: translateY(0px);
+    background-position: 0% 50%;
+  }
+  100% { 
+    transform: translateY(-5px);
+    background-position: 100% 50%;
+  }
+}
+
+.products-list li:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(33, 150, 243, 0.5);
+  animation: none;
 }
 
 .products-list li::before {
@@ -507,13 +587,27 @@ body {
 
 /* WhatsApp Button Styles */
 .whatsapp-button {
-  background: linear-gradient(135deg, #25d366, #128c7e) !important;
+  background: linear-gradient(135deg, #25d366, #128c7e, #00a84f) !important;
+  background-size: 200% 200% !important;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+  animation: whatsappGlow 2s ease-in-out infinite alternate !important;
+}
+
+@keyframes whatsappGlow {
+  0% { 
+    background-position: 0% 50%;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  }
+  100% { 
+    background-position: 100% 50%;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  }
 }
 
 .whatsapp-button:hover {
-  background: linear-gradient(135deg, #128c7e, #075e54) !important;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
+  background: linear-gradient(135deg, #128c7e, #075e54, #25d366) !important;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8) !important;
+  animation: none !important;
 }
 
 .whatsapp-icon {
