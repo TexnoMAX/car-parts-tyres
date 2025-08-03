@@ -64,6 +64,11 @@ function App() {
               <div className="title-section">
                 <h1>{t.title}</h1>
                 <p>{t.subtitle}</p>
+                <div className="header-phone">
+                  <a href={`tel:${t.contact.values.phone.replace(/\s/g, '')}`} className="header-phone-link">
+                    📞 {t.contact.values.phone}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -123,23 +128,38 @@ function App() {
             <h2>{t.contact.title}</h2>
             <div className="contact-info">
               <p><strong>{t.contact.name}:</strong> {t.contact.values.name}</p>
-              <p><strong>{t.contact.address}:</strong> {t.contact.values.address}</p>
+              <p>
+                <strong>{t.contact.address}:</strong> 
+                <a 
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(t.contact.values.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link address-link"
+                >
+                  📍 {t.contact.values.address}
+                </a>
+              </p>
               <p>
                 <strong>{t.contact.email}:</strong> 
-                <a href={`mailto:${t.contact.values.email}?subject=${encodeURIComponent(t.email.subject)}&body=${encodeURIComponent(t.email.body)}`} className="contact-link">
-                  {t.contact.values.email}
+                <a href={`mailto:${t.contact.values.email}?subject=${encodeURIComponent(t.email.subject)}&body=${encodeURIComponent(t.email.body)}`} className="contact-link email-link">
+                  📧 {t.contact.values.email}
                 </a>
               </p>
               <p>
                 <strong>{t.contact.phone}:</strong> 
-                <a href={`tel:${t.contact.values.phone}`} className="contact-link">
-                  {t.contact.values.phone}
+                <a href={`tel:${t.contact.values.phone.replace(/\s/g, '')}`} className="contact-link phone-link">
+                  📞 {t.contact.values.phone}
                 </a>
               </p>
             </div>
             
             {/* Google Maps */}
             <div className="map-container">
+              <div className="map-overlay" onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(t.contact.values.address)}`, '_blank')}>
+                <div className="map-overlay-text">
+                  <span>🗺️ Нажмите для построения маршрута</span>
+                </div>
+              </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.6749799999996!2d4.869568!3d52.034444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c665a1d1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sWilleskop%20180%2C%203421%20GW%20Oudewater%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1640000000000!5m2!1sen!2snl"
                 width="100%"
