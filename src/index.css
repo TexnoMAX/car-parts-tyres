@@ -24,6 +24,34 @@ body {
   color-scheme: light !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-weight: 500;
+}
+
+/* Universal text readability styles */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  color: #222 !important;
+}
+
+p, span, div, li, a {
+  text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.9), 
+               -0.5px -0.5px 1px rgba(0, 0, 0, 0.2);
+  color: #333 !important;
+}
+
+/* Enhanced contrast for links */
+a {
+  color: #1a5f7a !important;
+  font-weight: 500;
+}
+
+a:hover {
+  color: #0d4a5f !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), 
+               -1px -1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #root {

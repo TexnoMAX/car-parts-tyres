@@ -70,18 +70,26 @@ body {
   font-size: 12px;
   font-weight: bold;
   transition: all 0.3s ease;
-  color: #666;
+  color: #666666 !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .language-switcher button:hover {
   border-color: #ffcc00;
-  color: #333;
+  color: #333333 !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), 
+               -1px -1px 1px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 204, 0, 0.1);
 }
 
 .language-switcher button.active {
   background: #ffcc00;
   border-color: #ffcc00;
-  color: #000;
+  color: #000000 !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.3);
+  font-weight: 800;
 }
 
 /* Animations */
@@ -184,18 +192,24 @@ body {
   font-size: 2.5rem;
   margin: 0 0 10px 0;
   font-weight: bold;
-  color: #000;
+  color: #000 !important;
   background: linear-gradient(135deg, #000 0%, #333 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), 
+               -1px -1px 2px rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .header p {
   font-size: 1.2rem;
   margin: 0;
-  opacity: 0.8;
-  color: #555;
+  opacity: 0.9;
+  color: #444 !important;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), 
+               -0.5px -0.5px 1px rgba(0, 0, 0, 0.2);
 }
 
 .nav {
@@ -208,19 +222,23 @@ body {
 .nav button {
   background: none;
   border: 2px solid #333;
-  color: #333;
+  color: #333333 !important;
   padding: 10px 20px;
   border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .nav button:hover {
   background: #333;
-  color: #fff;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 
+               -1px -1px 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Main Content */
@@ -270,7 +288,7 @@ body {
 }
 
 .section h2 {
-  color: #000;
+  color: #000 !important;
   margin-bottom: 20px;
   font-size: 28px;
   font-weight: 600;
@@ -280,6 +298,9 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), 
+               -1px -1px 2px rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .section h2::after {
@@ -292,15 +313,19 @@ body {
   height: 3px;
   background: linear-gradient(90deg, #ffcc00, #e6b800);
   border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section p {
   text-align: center;
   font-size: 16px;
   line-height: 1.6;
-  color: #555;
+  color: #444 !important;
   max-width: 800px;
   margin: 0 auto;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), 
+               -0.5px -0.5px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Services Section */
@@ -342,7 +367,7 @@ body {
 
 .products-list li {
   background: linear-gradient(135deg, #000, #333);
-  color: white;
+  color: #ffffff !important;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -351,6 +376,9 @@ body {
   overflow: hidden;
   font-size: 16px;
   line-height: 1.5;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 
+               -1px -1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .products-list li::before {
@@ -427,20 +455,21 @@ body {
 }
 
 .cta-button {
-  background: #000;
-  color: #ffcc00;
+  background: linear-gradient(135deg, #ffcc00, #ffaa00);
+  color: #000000 !important;
+  padding: 12px 24px;
   border: none;
-  padding: 15px 35px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 50px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 10px 0;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
+  box-shadow: 0 2px 10px rgba(255, 204, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
@@ -468,24 +497,39 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 5px;
+  color: #333333 !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 }
 
 .contact-info strong {
-  color: #000;
+  color: #000000 !important;
   min-width: 120px;
   text-align: right;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
 }
 
 .contact-link {
-  color: #ffcc00;
+  color: #ffaa00 !important;
   text-decoration: none;
   font-weight: bold;
   margin-left: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5), 
+               -1px -1px 1px rgba(255, 255, 255, 0.3);
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: rgba(255, 204, 0, 0.1);
 }
 
 .contact-link:hover {
-  color: #000;
+  color: #000000 !important;
   text-decoration: underline;
+  background: rgba(255, 204, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 
+               -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Map Container */
