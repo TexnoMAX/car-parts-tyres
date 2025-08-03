@@ -1,26 +1,65 @@
-/* Theme Variables */
+/* =================================================================
+   ЦЕНТРАЛИЗОВАННАЯ СИСТЕМА ТЕМ - ВСЕ ЦВЕТА В ОДНОМ МЕСТЕ
+   ================================================================= */
+
+/* Light Theme Variables (Default) */
 :root {
-  /* Light Theme (Default) */
-  --bg-primary: #f6f6f6;
-  --bg-secondary: rgba(255, 255, 255, 0.98);
-  --text-primary: #333;
-  --text-secondary: #000;
-  --accent-color: #ffcc00;
-  --border-color: #ddd;
+  /* Основные фоны */
+  --bg-primary: #f6f6f6;           /* Фон страницы */
+  --bg-secondary: #ffffff;         /* Фон секций и карточек */
+  --bg-tertiary: #f8f9fa;         /* Фон элементов списков */
+  
+  /* Текстовые цвета */
+  --text-primary: #333;           /* Основной текст */
+  --text-secondary: #000;         /* Заголовки */
+  --text-muted: #666;            /* Приглушенный текст */
+  
+  /* Акцентные цвета */
+  --accent-color: #ffcc00;        /* Желтый акцент */
+  --accent-hover: #e6b800;       /* Темнее при наведении */
+  
+  /* Границы */
+  --border-color: #ddd;          /* Основные границы */
+  --border-dark: #000;           /* Темные границы */
+  
+  /* Тени */
   --shadow-light: rgba(255, 255, 255, 0.4);
   --shadow-dark: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  
+  /* WhatsApp цвета */
+  --whatsapp-color: #25d366;
+  --whatsapp-hover: #128c7e;
 }
 
-/* Dark Theme */
+/* Dark Theme Variables */
 body.theme-dark {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: rgba(42, 42, 42, 0.98);
-  --text-primary: #e0e0e0;
-  --text-secondary: #ffffff;
+  /* Основные фоны */
+  --bg-primary: #1a1a1a;           /* Темный фон страницы */
+  --bg-secondary: #2d2d2d;         /* Темный фон секций */
+  --bg-tertiary: #3a3a3a;         /* Темный фон элементов */
+  
+  /* Текстовые цвета */
+  --text-primary: #e0e0e0;         /* Светлый основной текст */
+  --text-secondary: #ffffff;       /* Белые заголовки */
+  --text-muted: #b0b0b0;          /* Приглушенный светлый текст */
+  
+  /* Акцентные цвета остаются */
   --accent-color: #ffcc00;
-  --border-color: #444;
+  --accent-hover: #e6b800;
+  
+  /* Границы */
+  --border-color: #444;           /* Темные границы */
+  --border-dark: #666;           /* Светлее для темной темы */
+  
+  /* Тени */
   --shadow-light: rgba(255, 255, 255, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+  
+  /* WhatsApp цвета остаются */
+  --whatsapp-color: #25d366;
+  --whatsapp-hover: #128c7e;
 }
 
 /* Global Styles Override */
@@ -268,12 +307,13 @@ body {
 .header-phone-link {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #000 !important;
+  color: var(--text-secondary) !important;
   text-decoration: none;
-  background: #f5f5f5;
+  background: var(--bg-tertiary);
   padding: 10px 20px;
   border-radius: 8px;
-  border: 2px solid #000;
+  border: 2px solid var(--border-dark);
+  transition: all 0.3s ease;
   transition: all 0.3s ease;
   display: inline-block;
 }
@@ -374,38 +414,14 @@ body {
 }
 
 .section:nth-child(even) {
-  background: linear-gradient(135deg, rgba(33, 150, 243, 0.08) 0%, rgba(103, 58, 183, 0.08) 100%);
+  background: var(--bg-secondary);
 }
 
 .section:nth-child(odd) {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%);
+  background: var(--bg-secondary);
 }
 
-.section:nth-child(even) {
-  background: linear-gradient(135deg, #f9f9f9, #fff);
-}
-
-.section h2 {
-  color: #000 !important;
-  margin-bottom: 20px;
-  font-size: 28px;
-  font-weight: 600;
-  text-align: center;
-}
-
-/* Убрана старая анимация для заголовков */
-
-.section p {
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444 !important;
-  max-width: 800px;
-  margin: 0 auto;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), 
-               -0.5px -0.5px 1px rgba(0, 0, 0, 0.2);
-}
+/* Удалены дублирующиеся стили - используем централизованные */
 
 /* Services Section */
 .services-list {
@@ -418,21 +434,21 @@ body {
 }
 
 .services-list li {
-  background: #f8f9fa;
+  background: var(--bg-tertiary);
   padding: 15px;
   border-radius: 15px;
-  border-left: 4px solid #000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--border-dark);
+  box-shadow: 0 2px 8px var(--shadow-dark);
   transition: all 0.3s ease;
   font-size: 16px;
   line-height: 1.5;
-  color: #000 !important;
+  color: var(--text-primary) !important;
 }
 
 .services-list li:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  border-left-color: #333;
+  box-shadow: 0 4px 15px var(--shadow-hover);
+  border-left-color: var(--text-secondary);
 }
 
 /* Products Section */
@@ -446,30 +462,30 @@ body {
 }
 
 .products-list li {
-  background: #f8f9fa;
-  color: #000 !important;
+  background: var(--bg-tertiary);
+  color: var(--text-primary) !important;
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px var(--shadow-dark);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 500;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-color);
 }
 
 /* Product hover effects */
 .products-list li:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  border-color: #000;
+  box-shadow: 0 4px 15px var(--shadow-hover);
+  border-color: var(--border-dark);
 }
 
 .products-list li::before {
   content: "✓";
-  color: #000;
+  color: var(--text-secondary);
   font-weight: bold;
   font-size: 18px;
   margin-right: 10px;
@@ -477,7 +493,7 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid #000;
+  border: 2px solid var(--border-dark);
   text-align: center;
   line-height: 24px;
   background: #f0f0f0;
@@ -485,8 +501,8 @@ body {
 
 .products-list li:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  border-color: #000;
+  box-shadow: 0 4px 15px var(--shadow-hover);
+  border-color: var(--border-dark);
 }
 
 .products-list li::after {
@@ -843,39 +859,43 @@ body {
 
 /* Company Section */
 .company-section {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
 }
 
 .company-info p {
   margin: 15px 0;
   font-size: 1.1rem;
   font-family: 'Courier New', monospace;
-  color: #000 !important;
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
 }
 
 .company-info strong {
-  color: #000 !important;
+  color: var(--text-secondary) !important;
   min-width: 80px;
   display: inline-block;
   font-weight: 700;
+  transition: color 0.3s ease;
 }
 
 /* Footer */
 .footer {
-  background: #f8f9fa;
-  color: #000 !important;
+  background: var(--bg-tertiary);
+  color: var(--text-primary) !important;
   padding: 30px 0;
   text-align: center;
   margin-top: 40px;
   width: 100%;
-  border-top: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+  border-top: 2px solid var(--border-color);
 }
 
 .footer p {
   font-size: 1rem;
   opacity: 0.8;
-  color: #000 !important;
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
 }
 
 /* Desktop and large screens */
@@ -1060,6 +1080,54 @@ html {
 /* Hover effects */
 .section:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px var(--shadow-hover);
   transition: all 0.3s ease;
 }
+
+/* =================================================================
+   СПРАВОЧНИК ПО СИСТЕМЕ ТЕМ
+   =================================================================
+   
+   Все цвета централизованы в CSS переменных в начале файла.
+   
+   ОСНОВНЫЕ ПЕРЕМЕННЫЕ:
+   
+   Фоны:
+   --bg-primary     - Основной фон страницы
+   --bg-secondary   - Фон секций и контейнеров  
+   --bg-tertiary    - Фон карточек и элементов списков
+   
+   Текст:
+   --text-primary   - Основной текст (абзацы, обычный текст)
+   --text-secondary - Заголовки и важный текст
+   --text-muted     - Приглушенный текст
+   
+   Границы:
+   --border-color   - Обычные границы
+   --border-dark    - Темные границы и акценты
+   
+   Тени:
+   --shadow-light   - Светлые тени
+   --shadow-dark    - Темные тени
+   --shadow-hover   - Тени при наведении
+   
+   Акценты:
+   --accent-color   - Основной акцентный цвет (желтый)
+   --accent-hover   - Цвет при наведении
+   
+   ПЕРЕКЛЮЧЕНИЕ ТЕМ:
+   - Светлая тема: по умолчанию (:root)
+   - Темная тема: body.theme-dark
+   
+   ДЛЯ ДОБАВЛЕНИЯ НОВЫХ ЭЛЕМЕНТОВ:
+   1. Используйте var(--переменная) вместо прямых цветов
+   2. Добавляйте transition: all 0.3s ease; для плавности
+   3. Все переменные автоматически переключаются между темами
+   
+   ПРИМЕРЫ ИСПОЛЬЗОВАНИЯ:
+   background: var(--bg-secondary);
+   color: var(--text-primary);
+   border: 1px solid var(--border-color);
+   box-shadow: 0 2px 10px var(--shadow-dark);
+   
+   ================================================================= */

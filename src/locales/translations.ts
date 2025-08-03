@@ -23,7 +23,7 @@ export const translations = {
         "💰 Aankoop van uw gebruikte banden",
         "🔍 Professionele bandeninspectie",
         "⚖️ Balancering en uitlijning",
-        "��️ Montage en demontage service",
+        "🛠️ Montage en demontage service",
         "📞 Gratis advies en consultatie",
         "✅ Garantie op alle producten"
       ]
