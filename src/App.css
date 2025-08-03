@@ -514,6 +514,33 @@ body {
   color: #fff !important;
 }
 
+/* WhatsApp Button Styles */
+.whatsapp-button {
+  background: linear-gradient(135deg, #25d366, #128c7e) !important;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+}
+
+.whatsapp-button:hover {
+  background: linear-gradient(135deg, #128c7e, #075e54) !important;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
+}
+
+.whatsapp-icon {
+  font-size: 20px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.whatsapp-button:hover .whatsapp-icon {
+  animation: pulse 0.6s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
 /* Contact Section */
 .contact-section {
   background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);

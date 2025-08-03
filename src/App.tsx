@@ -9,11 +9,19 @@ function App() {
   
   const t = translations[currentLang];
 
-  const handleEmailClick = () => {
-    const subject = encodeURIComponent(t.email.subject);
-    const body = encodeURIComponent(t.email.body);
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '31641373651'; // Номер в международном формате без +
     
-    window.location.href = `mailto:${t.contact.values.email}?subject=${subject}&body=${body}`;
+    // Многоязычные сообщения
+    const messages = {
+      nl: 'Hallo! Ik ben geïnteresseerd in uw banden en auto-onderdelen services.',
+      en: 'Hello! I am interested in your tires and auto parts services.',
+      ru: 'Здравствуйте! Интересуюсь вашими услугами по шинам и автозапчастям.'
+    };
+    
+    const message = encodeURIComponent(messages[currentLang]);
+    
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -104,7 +112,8 @@ function App() {
           {/* CTA Section */}
           <section className="cta">
             <p>{t.cta.text}</p>
-            <button className="cta-button" onClick={handleEmailClick}>
+            <button className="cta-button whatsapp-button" onClick={handleWhatsAppClick}>
+              <span className="whatsapp-icon">📱</span>
               {t.cta.button}
             </button>
           </section>

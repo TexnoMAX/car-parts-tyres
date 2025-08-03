@@ -40,7 +40,7 @@ export const translations = {
     
     cta: {
       text: "Op zoek naar een specifieke band of onderdeel?",
-      button: "Stuur ons een e-mail"
+      button: "WhatsApp ons direct"
     },
     
     email: {
@@ -131,7 +131,7 @@ Met vriendelijke groet,`
     
     cta: {
       text: "Looking for a specific tire or part?",
-      button: "Send us an email"
+      button: "WhatsApp us directly"
     },
     
     email: {
@@ -221,8 +221,8 @@ Best regards,`
     },
     
     cta: {
-      text: "Ищете конкретную шину или запчасть?",
-      button: "Напишите нам"
+      text: "Ищете конкретную шину или деталь?",
+      button: "Написать в WhatsApp"
     },
     
     email: {
