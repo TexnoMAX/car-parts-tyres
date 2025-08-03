@@ -63,19 +63,17 @@ body {
 }
 
 .language-switcher button {
-  background: linear-gradient(135deg, rgba(100, 100, 100, 0.9), rgba(120, 120, 120, 0.8));
-  border: 2px solid #888;
+  background: #ffffff;
+  border: 2px solid #000;
   padding: 8px 16px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 12px;
   font-weight: bold;
-  transition: all 0.4s ease;
-  color: #fff !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  color: #000 !important;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .language-switcher button::before {
@@ -94,68 +92,23 @@ body {
 }
 
 .language-switcher button:hover {
-  border-color: #ffcc00;
+  border-color: #000;
   color: #fff !important;
-  background: linear-gradient(135deg, rgba(255, 204, 0, 0.8), rgba(255, 215, 0, 0.7));
-  transform: scale(1.1);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+  background: #000;
+  transform: scale(1.05);
 }
 
 .language-switcher button.active {
-  background: linear-gradient(135deg, #ffcc00, #ffdd00);
-  border-color: #ffcc00;
-  color: #000 !important;
+  background: #000;
+  border-color: #000;
+  color: #fff !important;
   font-weight: 800;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-  box-shadow: 0 3px 12px rgba(255, 204, 0, 0.5);
 }
 
 /* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
 /* Header */
 .header {
@@ -174,10 +127,6 @@ body {
   display: none;
 }
 
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
 
 .header-content {
   margin-bottom: 30px;
@@ -227,11 +176,6 @@ body {
   text-shadow: none;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 .header p {
   font-size: 1.1rem;
@@ -279,7 +223,7 @@ body {
   border: 2px solid #000;
   color: #000 !important;
   padding: 12px 24px;
-  border-radius: 4px;
+  border-radius: 25px;
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
@@ -314,18 +258,18 @@ body {
 
 .section {
   margin-bottom: 40px;
-  background: rgba(40, 40, 40, 0.9);
+  background: #ffffff;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
-  border: 1px solid rgba(255, 204, 0, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
   width: 100%;
   max-width: 1000px;
   text-align: center;
 }
 
 .section h2 {
-  color: #fff !important;
+  color: #000 !important;
   font-size: 2.2rem;
   margin-bottom: 30px;
   font-weight: 700;
@@ -335,7 +279,7 @@ body {
 .section p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #fff !important;
+  color: #333 !important;
   max-width: 700px;
   margin: 0 auto 25px;
   font-weight: 400;
@@ -396,21 +340,21 @@ body {
 }
 
 .services-list li {
-  background: linear-gradient(135deg, rgba(50, 50, 50, 0.95), rgba(40, 40, 40, 0.9));
+  background: #f8f9fa;
   padding: 15px;
-  border-radius: 10px;
-  border-left: 4px solid #ffcc00;
-  box-shadow: 0 2px 8px rgba(255, 204, 0, 0.2);
+  border-radius: 15px;
+  border-left: 4px solid #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   font-size: 16px;
   line-height: 1.5;
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .services-list li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
-  border-left-color: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-left-color: #333;
 }
 
 /* Products Section */
@@ -424,42 +368,30 @@ body {
 }
 
 .products-list li {
-  background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(103, 58, 183, 0.9), rgba(156, 39, 176, 0.9));
-  background-size: 200% 200%;
-  color: #fff !important;
+  background: #f8f9fa;
+  color: #000 !important;
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
-  transition: all 0.4s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 500;
-  border: 2px solid transparent;
-  animation: productFloat 3s ease-in-out infinite alternate;
+  border: 2px solid #e0e0e0;
 }
 
-@keyframes productFloat {
-  0% { 
-    transform: translateY(0px);
-    background-position: 0% 50%;
-  }
-  100% { 
-    transform: translateY(-5px);
-    background-position: 100% 50%;
-  }
-}
-
+/* Product hover effects */
 .products-list li:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(33, 150, 243, 0.5);
-  animation: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-color: #000;
 }
 
 .products-list li::before {
   content: "✓";
-  color: #fff;
+  color: #000;
   font-weight: bold;
   font-size: 18px;
   margin-right: 10px;
@@ -467,16 +399,16 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid #000;
   text-align: center;
   line-height: 24px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #f0f0f0;
 }
 
 .products-list li:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(33, 150, 243, 0.5);
-  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-color: #000;
 }
 
 .products-list li::after {
@@ -501,7 +433,6 @@ body {
   max-width: 1000px;
   position: relative;
   overflow: hidden;
-  animation: pulse 2s infinite;
 }
 
 .cta::before {
@@ -512,17 +443,8 @@ body {
   width: 200%;
   height: 200%;
   background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shine 3s infinite;
 }
 
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
-}
 
 .cta p {
   font-size: 20px;
@@ -574,27 +496,18 @@ body {
 
 /* WhatsApp Button Styles */
 .whatsapp-button {
-  background: linear-gradient(135deg, #25d366, #128c7e, #00a84f) !important;
-  background-size: 200% 200% !important;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
-  animation: whatsappGlow 2s ease-in-out infinite alternate !important;
+  background: #25d366 !important;
+  color: #fff !important;
+  border: 2px solid #25d366 !important;
+  transition: all 0.3s ease !important;
 }
 
-@keyframes whatsappGlow {
-  0% { 
-    background-position: 0% 50%;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  }
-  100% { 
-    background-position: 100% 50%;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-  }
-}
-
+/* WhatsApp hover effect */
 .whatsapp-button:hover {
-  background: linear-gradient(135deg, #128c7e, #075e54, #25d366) !important;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8) !important;
-  animation: none !important;
+  background: #128c7e !important;
+  border-color: #128c7e !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
 }
 
 .whatsapp-icon {
@@ -604,19 +517,13 @@ body {
 }
 
 .whatsapp-button:hover .whatsapp-icon {
-  animation: pulse 0.6s infinite;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
 
 /* Contact Section */
 .contact-section {
-  background: linear-gradient(135deg, rgba(50, 50, 50, 0.95) 0%, rgba(40, 40, 40, 0.9) 100%);
-  border: 1px solid rgba(255, 204, 0, 0.3);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .contact-info {
@@ -632,14 +539,12 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 5px;
-  color: #fff !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8), 
-               -1px -1px 1px rgba(255, 204, 0, 0.2);
+  color: #000 !important;
   font-weight: 500;
 }
 
 .contact-info strong {
-  color: #fff !important;
+  color: #000 !important;
   min-width: 120px;
   text-align: right;
   font-weight: 700;
@@ -804,37 +709,39 @@ body {
 
 /* Company Section */
 .company-section {
-  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .company-info p {
   margin: 15px 0;
   font-size: 1.1rem;
   font-family: 'Courier New', monospace;
+  color: #000 !important;
 }
 
 .company-info strong {
-  color: #fff;
+  color: #000 !important;
   min-width: 80px;
   display: inline-block;
+  font-weight: 700;
 }
 
 /* Footer */
 .footer {
-  background: #000000;
-  color: #fff !important;
+  background: #f8f9fa;
+  color: #000 !important;
   padding: 30px 0;
   text-align: center;
   margin-top: 40px;
   width: 100%;
-  border-top: 2px solid #ffcc00;
+  border-top: 2px solid #e0e0e0;
 }
 
 .footer p {
   font-size: 1rem;
-  opacity: 0.9;
-  color: #fff !important;
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+  opacity: 0.8;
+  color: #000 !important;
 }
 
 /* Desktop and large screens */
@@ -989,19 +896,8 @@ html {
 
 /* Loading animations */
 .section {
-  animation: fadeInUp 0.6s ease-out;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* Hover effects */
 .section:hover {
