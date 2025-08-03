@@ -1,24 +1,34 @@
 export const translations = {
   nl: {
-    // Заголовок
     title: "GS Car Parts & Tyres",
-    subtitle: "Kwalitatieve tweedehands banden en auto-onderdelen",
+    subtitle: "Kwaliteit gebruikte banden en auto-onderdelen",
     
-    // Навигация
     nav: {
       about: "Over ons",
-      products: "Producten", 
+      products: "Producten",
       contact: "Contact",
       company: "Bedrijfsgegevens"
     },
     
-    // О нас
     about: {
       title: "Over ons",
-      description: "Bij GS Car Parts & Tyres vindt u betrouwbare tweedehands autobanden en onderdelen. Wij leveren betaalbare kwaliteit met snelle service."
+      description: "Bij GS Car Parts & Tyres vindt u betrouwbare tweedehands autobanden en onderdelen. Wij leveren betaalbare kwaliteit met snelle service en uitgebreide garantie op al onze producten."
     },
     
-    // Продукты
+    services: {
+      title: "Onze diensten",
+      items: [
+        "🔧 Eigen bandenservice op het terrein",
+        "🚚 Bezorging van wielen op uw adres", 
+        "💰 Aankoop van uw gebruikte banden",
+        "🔍 Professionele bandeninspectie",
+        "⚖️ Balancering en uitlijning",
+        "��️ Montage en demontage service",
+        "📞 Gratis advies en consultatie",
+        "✅ Garantie op alle producten"
+      ]
+    },
+    
     products: {
       title: "Onze producten",
       items: [
@@ -28,17 +38,29 @@ export const translations = {
       ]
     },
     
-    // CTA
     cta: {
       text: "Op zoek naar een specifieke band of onderdeel?",
       button: "Stuur ons een e-mail"
     },
     
-    // Контакты
+    email: {
+      subject: "Aanvraag voor banden en auto-onderdelen",
+      body: `Hallo!
+
+Ik ben geïnteresseerd in:
+- 
+
+Contactgegevens:
+Naam: 
+Telefoon: 
+
+Met vriendelijke groet,`
+    },
+    
     contact: {
       title: "Contactgegevens",
       name: "Naam",
-      address: "Nieuw Adres",
+      address: "Adres",
       email: "Email",
       phone: "Telefoon",
       values: {
@@ -49,12 +71,11 @@ export const translations = {
       }
     },
     
-    // Банковские данные
     company: {
       title: "Bedrijfsgegevens",
       bank: "Bank",
       iban: "IBAN",
-      swift: "SWIFT", 
+      swift: "SWIFT",
       btw: "BTW",
       kvk: "KVK",
       values: {
@@ -66,16 +87,13 @@ export const translations = {
       }
     },
     
-    // Подвал
     footer: "© 2025 GS Car Parts & Tyres – Alle rechten voorbehouden"
   },
   
   en: {
-    // Header
     title: "GS Car Parts & Tyres",
     subtitle: "Quality used tires and car parts",
     
-    // Navigation
     nav: {
       about: "About us",
       products: "Products",
@@ -83,13 +101,25 @@ export const translations = {
       company: "Company details"
     },
     
-    // About
     about: {
       title: "About us",
-      description: "At GS Car Parts & Tyres you will find reliable used car tires and parts. We deliver affordable quality with fast service."
+      description: "At GS Car Parts & Tyres you will find reliable used car tires and parts. We deliver affordable quality with fast service and comprehensive warranty on all our products."
     },
     
-    // Products
+    services: {
+      title: "Our Services",
+      items: [
+        "🔧 Own tire service on premises",
+        "🚚 Wheel delivery to your address",
+        "💰 Purchase of your used tires",
+        "🔍 Professional tire inspection",
+        "⚖️ Balancing and alignment",
+        "🛠️ Mounting and dismounting service",
+        "📞 Free advice and consultation",
+        "✅ Warranty on all products"
+      ]
+    },
+    
     products: {
       title: "Our products",
       items: [
@@ -99,17 +129,29 @@ export const translations = {
       ]
     },
     
-    // CTA
     cta: {
       text: "Looking for a specific tire or part?",
       button: "Send us an email"
     },
     
-    // Contact
+    email: {
+      subject: "Inquiry about tires and auto parts",
+      body: `Hello!
+
+I am interested in:
+- 
+
+Contact details:
+Name: 
+Phone: 
+
+Best regards,`
+    },
+    
     contact: {
       title: "Contact details",
       name: "Name",
-      address: "New Address", 
+      address: "Address",
       email: "Email",
       phone: "Phone",
       values: {
@@ -120,7 +162,6 @@ export const translations = {
       }
     },
     
-    // Company
     company: {
       title: "Company details",
       bank: "Bank",
@@ -130,23 +171,20 @@ export const translations = {
       kvk: "Chamber of Commerce",
       values: {
         bank: "ING BANK NV",
-        iban: "NL35INGB0105700096", 
+        iban: "NL35INGB0105700096",
         swift: "INGBNL2A",
         btw: "NL004996126B65",
         kvk: "58650393"
       }
     },
     
-    // Footer
     footer: "© 2025 GS Car Parts & Tyres – All rights reserved"
   },
   
   ru: {
-    // Заголовок
     title: "GS Car Parts & Tyres",
     subtitle: "Качественные б/у шины и автозапчасти",
     
-    // Навигация
     nav: {
       about: "О нас",
       products: "Продукция",
@@ -154,33 +192,57 @@ export const translations = {
       company: "Реквизиты"
     },
     
-    // О нас
     about: {
       title: "О нас",
-      description: "В GS Car Parts & Tyres вы найдете надежные б/у автомобильные шины и запчасти. Мы предлагаем доступное качество с быстрым сервисом."
+      description: "В GS Car Parts & Tyres вы найдете надежные б/у шины и автозапчасти. Мы предоставляем доступное качество с быстрым сервисом и полной гарантией на все наши товары."
     },
     
-    // Продукты
-    products: {
-      title: "Наша продукция",
+    services: {
+      title: "Наши услуги",
       items: [
-        "Летние и зимние шины с достаточным протектором",
-        "Диски, подвеска, тормоза и многое другое",
-        "Подходит для различных марок автомобилей"
+        "🔧 Собственный шиномонтаж на территории",
+        "🚚 Доставка колес на ваш адрес",
+        "💰 Выкуп ваших б/у шин",
+        "🔍 Профессиональная диагностика шин",
+        "⚖️ Балансировка и развал-схождение",
+        "🛠️ Монтаж и демонтаж колес",
+        "📞 Бесплатная консультация",
+        "✅ Гарантия на все товары"
       ]
     },
     
-    // CTA
+    products: {
+      title: "Наши товары",
+      items: [
+        "Летние и зимние шины с хорошим протектором",
+        "Диски, подвеска, тормоза и многое другое",
+        "Подходят для различных марок автомобилей"
+      ]
+    },
+    
     cta: {
       text: "Ищете конкретную шину или запчасть?",
       button: "Напишите нам"
     },
     
-    // Контакты
+    email: {
+      subject: "Запрос по шинам и автозапчастям",
+      body: `Здравствуйте!
+
+Меня интересует:
+- 
+
+Контактные данные:
+Имя: 
+Телефон: 
+
+С уважением,`
+    },
+    
     contact: {
       title: "Контактные данные",
       name: "Имя",
-      address: "Новый адрес",
+      address: "Адрес",
       email: "Email",
       phone: "Телефон",
       values: {
@@ -191,7 +253,6 @@ export const translations = {
       }
     },
     
-    // Реквизиты
     company: {
       title: "Реквизиты компании",
       bank: "Банк",
@@ -208,7 +269,6 @@ export const translations = {
       }
     },
     
-    // Подвал
     footer: "© 2025 GS Car Parts & Tyres – Все права защищены"
   }
 };

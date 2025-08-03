@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { translations } from './locales/translations';
 import './App.css';
 
@@ -10,11 +10,10 @@ function App() {
   const t = translations[currentLang];
 
   const handleEmailClick = () => {
-    window.location.href = `mailto:${t.contact.values.email}?subject=Inquiry about tires/parts`;
-  };
-
-  const handlePhoneClick = () => {
-    window.location.href = `tel:${t.contact.values.phone}`;
+    const subject = encodeURIComponent(t.email.subject);
+    const body = encodeURIComponent(t.email.body);
+    
+    window.location.href = `mailto:${t.contact.values.email}?subject=${subject}&body=${body}`;
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -64,6 +63,7 @@ function App() {
           {/* Navigation */}
           <nav className="nav">
             <button onClick={() => scrollToSection('about')}>{t.nav.about}</button>
+            <button onClick={() => scrollToSection('services')}>{t.services.title}</button>
             <button onClick={() => scrollToSection('products')}>{t.nav.products}</button>
             <button onClick={() => scrollToSection('contact')}>{t.nav.contact}</button>
             <button onClick={() => scrollToSection('company')}>{t.nav.company}</button>
@@ -79,6 +79,16 @@ function App() {
           <section id="about" className="section">
             <h2>{t.about.title}</h2>
             <p>{t.about.description}</p>
+          </section>
+
+          {/* Services Section */}
+          <section id="services" className="section">
+            <h2>{t.services.title}</h2>
+            <ul className="services-list">
+              {t.services.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
           </section>
 
           {/* Products Section */}
@@ -107,7 +117,7 @@ function App() {
               <p><strong>{t.contact.address}:</strong> {t.contact.values.address}</p>
               <p>
                 <strong>{t.contact.email}:</strong> 
-                <a href={`mailto:${t.contact.values.email}`} className="contact-link">
+                <a href={`mailto:${t.contact.values.email}?subject=${encodeURIComponent(t.email.subject)}&body=${encodeURIComponent(t.email.body)}`} className="contact-link">
                   {t.contact.values.email}
                 </a>
               </p>
