@@ -1,13 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { translations } from './locales/translations';
 import './App.css';
 
 type Language = 'nl' | 'en' | 'ru';
+type Theme = 'light' | 'dark';
 
 function App() {
   const [currentLang, setCurrentLang] = useState<Language>('nl');
+  const [currentTheme, setCurrentTheme] = useState<Theme>('light');
+  
+  // Загружаем тему из localStorage при инициализации
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as Theme;
+    if (savedTheme) {
+      setCurrentTheme(savedTheme);
+    }
+  }, []);
+  
+  // Применяем тему к документу
+  useEffect(() => {
+    document.body.className = `theme-${currentTheme}`;
+    localStorage.setItem('theme', currentTheme);
+  }, [currentTheme]);
   
   const t = translations[currentLang];
+
+  const toggleTheme = () => {
+    setCurrentTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   const handleWhatsAppClick = () => {
     const phoneNumber = '31641373651'; // Номер в международном формате без +
