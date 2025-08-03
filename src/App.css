@@ -18,6 +18,19 @@
   --accent-color: #ffcc00;        /* Желтый акцент */
   --accent-hover: #e6b800;       /* Темнее при наведении */
   
+  /* Ссылки */
+  --link-color: #2196f3;          /* Синий цвет ссылок */
+  --link-hover: #1976d2;         /* Темнее при наведении */
+  --address-link-color: #7b1fa2;  /* Фиолетовый для адреса */
+  --address-link-bg: rgba(156, 39, 176, 0.15);  /* Фон адресной ссылки */
+  --address-link-border: rgba(156, 39, 176, 0.3); /* Граница */
+  
+  /* CTA секция */
+  --cta-bg-primary: #ffcc00;      /* Желтый фон CTA */
+  --cta-bg-secondary: #e6b800;    /* Темнее желтый */
+  --cta-shadow: rgba(255, 204, 0, 0.4);  /* Желтая тень */
+  --cta-text: #2c2c2c;           /* Темный текст на желтом фоне */
+  
   /* Границы */
   --border-color: #ddd;          /* Основные границы */
   --border-dark: #000;           /* Темные границы */
@@ -47,6 +60,19 @@ body.theme-dark {
   /* Акцентные цвета остаются */
   --accent-color: #ffcc00;
   --accent-hover: #e6b800;
+  
+  /* Ссылки для темной темы */
+  --link-color: #64b5f6;          /* Светло-синий для темной темы */
+  --link-hover: #42a5f5;         /* Чуть ярче при наведении */
+  --address-link-color: #ce93d8;  /* Светло-фиолетовый для адреса */
+  --address-link-bg: rgba(206, 147, 216, 0.15);  /* Светлый фон */
+  --address-link-border: rgba(206, 147, 216, 0.4); /* Светлая граница */
+  
+  /* CTA секция для темной темы */
+  --cta-bg-primary: #2d2d2d;      /* Темный фон вместо желтого */
+  --cta-bg-secondary: #3a3a3a;    /* Чуть светлее темный */
+  --cta-shadow: rgba(255, 204, 0, 0.2);  /* Приглушенная желтая тень */
+  --cta-text: #ffffff;            /* Белый текст на темном */
   
   /* Границы */
   --border-color: #444;           /* Темные границы */
@@ -517,16 +543,17 @@ body {
 
 /* CTA Section */
 .cta {
-  background: linear-gradient(135deg, #ffcc00, #e6b800);
+  background: linear-gradient(135deg, var(--cta-bg-primary), var(--cta-bg-secondary));
   padding: 50px 30px;
   text-align: center;
   margin: 50px auto;
   border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(255, 204, 0, 0.4);
+  box-shadow: 0 8px 30px var(--cta-shadow);
   width: 100%;
   max-width: 1000px;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .cta::before {
@@ -543,8 +570,9 @@ body {
 .cta p {
   font-size: 20px;
   margin-bottom: 25px;
-  color: #fff;
+  color: var(--cta-text);
   font-weight: 600;
+  transition: color 0.3s ease;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -701,7 +729,7 @@ body {
 }
 
 .contact-link {
-  color: #2196f3 !important;
+  color: var(--link-color) !important;
   text-decoration: none;
   font-weight: bold;
   margin-left: 10px;
@@ -712,9 +740,9 @@ body {
 }
 
 .contact-link:hover {
-  color: #fff !important;
+  color: var(--bg-secondary) !important;
   text-decoration: none;
-  background: linear-gradient(135deg, #2196f3, #673ab7);
+  background: linear-gradient(135deg, var(--link-color), #673ab7);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
 }
@@ -778,21 +806,22 @@ body {
   font-size: 1.3rem !important;
   font-weight: 700 !important;
   padding: 8px 16px !important;
-  background: linear-gradient(135deg, rgba(156, 39, 176, 0.15), rgba(233, 30, 99, 0.15)) !important;
-  color: #7b1fa2 !important;
-  border: 2px solid rgba(156, 39, 176, 0.3);
+  background: var(--address-link-bg) !important;
+  color: var(--address-link-color) !important;
+  border: 2px solid var(--address-link-border);
   border-radius: 12px !important;
   display: inline-block;
   margin: 10px 0;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(156, 39, 176, 0.2);
   text-decoration: none !important;
 }
 
 .address-link:hover {
-  background: linear-gradient(135deg, #9c27b0, #e91e63) !important;
-  color: #fff !important;
+  background: var(--address-link-color) !important;
+  color: var(--bg-secondary) !important;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4) !important;
+  box-shadow: 0 8px 25px var(--address-link-border) !important;
   border-color: transparent;
   text-decoration: none !important;
 }

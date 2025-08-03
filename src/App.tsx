@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { translations } from './locales/translations';
+import TestimonialsCarousel from './components/TestimonialsCarousel';
 import './App.css';
 
 type Language = 'nl' | 'en' | 'ru';
@@ -219,6 +220,9 @@ function App() {
         </div>
       </main>
 
+      {/* Testimonials Carousel */}
+      <TestimonialsCarousel language={currentLang} />
+
       {/* Footer */}
       <footer className="footer">
         <div className="container">
@@ -228,7 +232,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <div className="whatsapp-floating" onClick={handleWhatsAppClick}>
-        📱
+        🗨️ 
       </div>
     </div>
   );

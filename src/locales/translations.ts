@@ -66,7 +66,7 @@ Met vriendelijke groet,`
       values: {
         name: "Shevchuk Grygorii",
         address: "Willeskop 180, 3421GW, Oudewater",
-        email: "sltiresbv@gmail.com",
+        email: "shevchukg@ukr.net",
         phone: "06 413 736 51"
       }
     },
@@ -157,7 +157,7 @@ Best regards,`
       values: {
         name: "Shevchuk Grygorii",
         address: "Willeskop 180, 3421GW, Oudewater",
-        email: "sltiresbv@gmail.com",
+        email: "shevchukg@ukr.net",
         phone: "06 413 736 51"
       }
     },
@@ -248,7 +248,7 @@ Best regards,`
       values: {
         name: "Шевчук Григорий",
         address: "Willeskop 180, 3421GW, Oudewater",
-        email: "sltiresbv@gmail.com",
+        email: "shevchukg@ukr.net",
         phone: "06 413 736 51"
       }
     },

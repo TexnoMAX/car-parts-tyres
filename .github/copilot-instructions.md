@@ -57,7 +57,7 @@ GrishaAvto/
 
 - **Имя**: Shevchuk Grygorii
 - **Адрес**: Willeskop 180, 3421GW, Oudewater
-- **Email**: sltiresbv@gmail.com
+- **Email**: shevchukg@ukr.net
 - **Телефон**: 06 413 736 51
 
 ## Реквизиты компании
