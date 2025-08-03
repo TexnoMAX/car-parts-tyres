@@ -1,8 +1,9 @@
 {
-  "name": "grishaavto",
+  "name": "gs-car-parts-tyres",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "GS Car Parts & Tyres - Quality used tires and car parts landing page",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -1,229 +1,162 @@
-import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import TireCard from './components/TireCard';
-import type { Tire, Company } from './types';
+import React, { useState } from 'react';
+import { translations } from './locales/translations';
 import './App.css';
 
+type Language = 'nl' | 'en' | 'ru';
+
 function App() {
-  const [tires, setTires] = useState<Tire[]>([]);
-  const [company, setCompany] = useState<Company | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedTire, setSelectedTire] = useState<number | null>(null);
-  const [showContactForm, setShowContactForm] = useState(false);
-  const [contactForm, setContactForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
+  const [currentLang, setCurrentLang] = useState<Language>('nl');
+  
+  const t = translations[currentLang];
 
-  useEffect(() => {
-    fetchTires();
-    fetchCompanyInfo();
-  }, []);
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${t.contact.values.email}?subject=Inquiry about tires/parts`;
+  };
 
-  const fetchTires = async () => {
-    try {
-      const response = await fetch('http://localhost:5000/api/tires');
-      if (response.ok) {
-        const data = await response.json();
-        setTires(data);
-      }
-    } catch (error) {
-      console.error('Ошибка загрузки шин:', error);
-    } finally {
-      setLoading(false);
+  const handlePhoneClick = () => {
+    window.location.href = `tel:${t.contact.values.phone}`;
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  const fetchCompanyInfo = async () => {
-    try {
-      const response = await fetch('http://localhost:5000/api/company');
-      if (response.ok) {
-        const data = await response.json();
-        setCompany(data);
-      }
-    } catch (error) {
-      console.error('Ошибка загрузки информации о компании:', error);
-    }
-  };
-
-  const handleContact = (tireId: number) => {
-    setSelectedTire(tireId);
-    setShowContactForm(true);
-  };
-
-  const handleSubmitContact = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...contactForm,
-          tireId: selectedTire
-        })
-      });
-
-      if (response.ok) {
-        alert('Сообщение отправлено успешно!');
-        setContactForm({ name: '', phone: '', email: '', message: '' });
-        setShowContactForm(false);
-        setSelectedTire(null);
-      } else {
-        alert('Ошибка отправки сообщения');
-      }
-    } catch (error) {
-      console.error('Ошибка:', error);
-      alert('Ошибка отправки сообщения');
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="loading">
-        <p>Загрузка...</p>
-      </div>
-    );
-  }
 
   return (
     <div className="App">
-      <Header />
-      
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="container">
-          <div className="hero-content">
-            <h1>Добро пожаловать в Авто-Гриша!</h1>
-            <p>Качественные б/у шины по доступным ценам. Большой выбор, проверенное качество, гарантия на все товары.</p>
-            <a href="#catalog" className="cta-button">Посмотреть каталог</a>
-          </div>
-        </div>
-      </section>
+      {/* Language Switcher */}
+      <div className="language-switcher">
+        <button 
+          className={currentLang === 'nl' ? 'active' : ''} 
+          onClick={() => setCurrentLang('nl')}
+        >
+          🇳🇱 NL
+        </button>
+        <button 
+          className={currentLang === 'en' ? 'active' : ''} 
+          onClick={() => setCurrentLang('en')}
+        >
+          🇬🇧 EN
+        </button>
+        <button 
+          className={currentLang === 'ru' ? 'active' : ''} 
+          onClick={() => setCurrentLang('ru')}
+        >
+          🇷🇺 RU
+        </button>
+      </div>
 
-      {/* Catalog Section */}
-      <section id="catalog" className="catalog">
+      {/* Header */}
+      <header className="header">
         <div className="container">
-          <h2>Каталог шин</h2>
-          {tires.length > 0 ? (
-            <div className="tires-grid">
-              {tires.map(tire => (
-                <TireCard
-                  key={tire.id}
-                  tire={tire}
-                  onContact={handleContact}
-                />
+          <div className="header-content">
+            <div className="logo-section">
+              <img src="/logo.png" alt="GS Car Parts & Tyres Logo" className="logo" />
+              <div className="title-section">
+                <h1>{t.title}</h1>
+                <p>{t.subtitle}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Navigation */}
+          <nav className="nav">
+            <button onClick={() => scrollToSection('about')}>{t.nav.about}</button>
+            <button onClick={() => scrollToSection('products')}>{t.nav.products}</button>
+            <button onClick={() => scrollToSection('contact')}>{t.nav.contact}</button>
+            <button onClick={() => scrollToSection('company')}>{t.nav.company}</button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="main">
+        <div className="container">
+          
+          {/* About Section */}
+          <section id="about" className="section">
+            <h2>{t.about.title}</h2>
+            <p>{t.about.description}</p>
+          </section>
+
+          {/* Products Section */}
+          <section id="products" className="section">
+            <h2>{t.products.title}</h2>
+            <ul className="products-list">
+              {t.products.items.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
+            </ul>
+          </section>
+
+          {/* CTA Section */}
+          <section className="cta">
+            <p>{t.cta.text}</p>
+            <button className="cta-button" onClick={handleEmailClick}>
+              {t.cta.button}
+            </button>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="section contact-section">
+            <h2>{t.contact.title}</h2>
+            <div className="contact-info">
+              <p><strong>{t.contact.name}:</strong> {t.contact.values.name}</p>
+              <p><strong>{t.contact.address}:</strong> {t.contact.values.address}</p>
+              <p>
+                <strong>{t.contact.email}:</strong> 
+                <a href={`mailto:${t.contact.values.email}`} className="contact-link">
+                  {t.contact.values.email}
+                </a>
+              </p>
+              <p>
+                <strong>{t.contact.phone}:</strong> 
+                <a href={`tel:${t.contact.values.phone}`} className="contact-link">
+                  {t.contact.values.phone}
+                </a>
+              </p>
             </div>
-          ) : (
-            <p>Шины не найдены</p>
-          )}
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="about">
-        <div className="container">
-          <h2>О нас</h2>
-          {company && (
-            <div className="about-content">
-              <div className="about-text">
-                <h3>{company.name}</h3>
-                <p>{company.description}</p>
-                <h4>Наши услуги:</h4>
-                <ul>
-                  {company.services.map((service, index) => (
-                    <li key={index}>{service}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="about-info">
-                <div className="info-card">
-                  <h4>📞 Контакты</h4>
-                  <p>{company.phone}</p>
-                  <p>{company.email}</p>
-                </div>
-                <div className="info-card">
-                  <h4>📍 Адрес</h4>
-                  <p>{company.address}</p>
-                </div>
-                <div className="info-card">
-                  <h4>🕒 Время работы</h4>
-                  <p>{company.workingHours}</p>
-                </div>
-              </div>
+            
+            {/* Google Maps */}
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.6749799999996!2d4.869568!3d52.034444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c665a1d1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sWilleskop%20180%2C%203421%20GW%20Oudewater%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1640000000000!5m2!1sen!2snl"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="GS Car Parts & Tyres Location"
+              />
             </div>
-          )}
-        </div>
-      </section>
+          </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="contact">
+          {/* Company Details Section */}
+          <section id="company" className="section company-section">
+            <h2>{t.company.title}</h2>
+            <div className="company-info">
+              <p><strong>{t.company.bank}:</strong> {t.company.values.bank}</p>
+              <p><strong>{t.company.iban}:</strong> {t.company.values.iban}</p>
+              <p><strong>{t.company.swift}:</strong> {t.company.values.swift}</p>
+              <p><strong>{t.company.btw}:</strong> {t.company.values.btw}</p>
+              <p><strong>{t.company.kvk}:</strong> {t.company.values.kvk}</p>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="footer">
         <div className="container">
-          <h2>Связаться с нами</h2>
-          <button 
-            className="contact-button"
-            onClick={() => setShowContactForm(true)}
-          >
-            Написать нам
-          </button>
+          <p>{t.footer}</p>
         </div>
-      </section>
-
-      {/* Contact Form Modal */}
-      {showContactForm && (
-        <div className="modal-overlay" onClick={() => setShowContactForm(false)}>
-          <div className="modal" onClick={e => e.stopPropagation()}>
-            <h3>Связаться с нами</h3>
-            {selectedTire && (
-              <p>Интересует шина #{selectedTire}</p>
-            )}
-            <form onSubmit={handleSubmitContact}>
-              <input
-                type="text"
-                placeholder="Ваше имя"
-                value={contactForm.name}
-                onChange={e => setContactForm({...contactForm, name: e.target.value})}
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Телефон"
-                value={contactForm.phone}
-                onChange={e => setContactForm({...contactForm, phone: e.target.value})}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                value={contactForm.email}
-                onChange={e => setContactForm({...contactForm, email: e.target.value})}
-                required
-              />
-              <textarea
-                placeholder="Сообщение"
-                value={contactForm.message}
-                onChange={e => setContactForm({...contactForm, message: e.target.value})}
-                required
-                rows={4}
-              />
-              <div className="modal-buttons">
-                <button type="button" onClick={() => setShowContactForm(false)}>
-                  Отмена
-                </button>
-                <button type="submit">Отправить</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      </footer>
     </div>
   );
 }
 
 export default App;
-
-export default App
